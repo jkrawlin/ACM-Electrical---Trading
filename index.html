@@ -3,27 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACM Electrical & Trading - Professional Garage Services in Qatar</title>
-    <meta name="description" content="ACM Electrical & Trading - Your trusted garage in Al Thumama, Qatar. Professional automotive electrical services, trading, and repairs.">
+    <title>ACM Electrical & Trading - Premium Garage Services in Qatar</title>
+    <meta name="description" content="ACM Electrical & Trading - Qatar's premier garage in Al Thumama. Expert automotive electrical services, premium parts trading, and professional repairs with 24/7 emergency support.">
+    <meta name="keywords" content="garage qatar, automotive repair, electrical services, car repair al thumama, emergency roadside assistance, auto parts qatar">
+    <meta name="author" content="ACM Electrical & Trading">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ACM Electrical & Trading - Premier Garage Services Qatar">
+    <meta property="og:description" content="Professional automotive services in Al Thumama, Qatar. Expert repairs, electrical systems, and 24/7 emergency support.">
+    <meta property="og:image" content="images/2023-07-26.webp">
+    <meta property="og:url" content="https://jkrawlin.github.io/ACM-Electrical---Trading/">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="gear"></div>
+            <div class="gear gear-2"></div>
+            <div class="loader-text">ACM Electrical & Trading</div>
+        </div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>ACM Electrical & Trading</h2>
+                <img src="images/2023-07-26.webp" alt="ACM Logo" class="logo-img">
+                <div class="logo-text">
+                    <h2>ACM Electrical & Trading</h2>
+                    <span>Professional Garage Services</span>
+                </div>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
+                <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
+                <a href="#stats" class="nav-link">Our Stats</a>
                 <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <div class="nav-cta">
+                    <a href="tel:+97471014454" class="btn-nav-cta">
+                        <i class="fas fa-phone"></i> Emergency Call
+                    </a>
+                </div>
             </div>
             <div class="nav-toggle" id="nav-toggle">
                 <span></span>
@@ -35,18 +69,60 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">ACM Electrical & Trading</h1>
-            <p class="hero-subtitle">Professional Garage Services in Qatar</p>
-            <p class="hero-description">Your trusted partner for automotive electrical services, trading, and professional repairs in Al Thumama</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-primary">Our Services</a>
-                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        <div class="hero-background">
+            <video autoplay muted loop class="hero-video">
+                <source src="images/hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-badge" data-aos="fade-down" data-aos-delay="200">
+                <i class="fas fa-star"></i>
+                <span>Qatar's Premier Automotive Service</span>
+            </div>
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">
+                <span class="gradient-text">ACM Electrical</span>
+                <span class="hero-ampersand">&</span>
+                <span class="gradient-text">Trading</span>
+            </h1>
+            <div class="hero-subtitle-container" data-aos="fade-up" data-aos-delay="600">
+                <p class="hero-subtitle typing-text">Excellence in Automotive Solutions</p>
+                <div class="hero-features">
+                    <span><i class="fas fa-shield-check"></i> 24/7 Emergency</span>
+                    <span><i class="fas fa-tools"></i> Expert Technicians</span>
+                    <span><i class="fas fa-medal"></i> Premium Quality</span>
+                </div>
+            </div>
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="800">
+                Your trusted partner for automotive electrical services, premium parts trading, and professional repairs in Al Thumama, Qatar
+            </p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="1000">
+                <a href="#services" class="btn btn-primary btn-glow">
+                    <i class="fas fa-cogs"></i> Explore Services
+                </a>
+                <a href="#contact" class="btn btn-secondary btn-glass">
+                    <i class="fas fa-phone-alt"></i> Get Quote
+                </a>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="1200">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="24">0</div>
+                    <div class="stat-label">Hour Service</div>
+                </div>
             </div>
         </div>
-        <div class="hero-scroll">
-            <a href="#about">
+        <div class="hero-scroll" data-aos="fade-up" data-aos-delay="1400">
+            <a href="#about" class="scroll-indicator">
+                <span>Scroll Down</span>
                 <i class="fas fa-chevron-down"></i>
             </a>
         </div>
@@ -55,125 +131,315 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
-                <h2>About ACM Electrical & Trading</h2>
-                <p>Excellence in automotive services since our establishment</p>
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About Us</span>
+                </div>
+                <h2>Excellence in <span class="gradient-text">Automotive Services</span></h2>
+                <p>Discover why ACM Electrical & Trading is Qatar's most trusted automotive service provider</p>
             </div>
             <div class="about-content">
-                <div class="about-text">
-                    <h3>Your Trusted Automotive Partner in Qatar</h3>
-                    <p>ACM Electrical & Trading is a premier garage located in the heart of Al Thumama, Qatar. We specialize in providing comprehensive automotive electrical services, trading solutions, and professional repairs for all types of vehicles.</p>
-                    <p>Our team of experienced technicians is dedicated to delivering high-quality services using the latest technology and equipment. We pride ourselves on our commitment to customer satisfaction and professional excellence.</p>
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-tools"></i>
-                            <h4>Professional Equipment</h4>
-                            <p>State-of-the-art diagnostic tools and equipment</p>
+                <div class="about-image-container" data-aos="fade-right" data-aos-delay="200">
+                    <div class="about-image-main">
+                        <img src="images/2023-07-26 (1).webp" alt="ACM Electrical & Trading Garage" class="about-main-img">
+                        <div class="about-image-overlay">
+                            <div class="play-button" onclick="openVideoModal()">
+                                <i class="fas fa-play"></i>
+                            </div>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-users"></i>
-                            <h4>Experienced Team</h4>
-                            <p>Skilled technicians with years of experience</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-clock"></i>
-                            <h4>Quick Service</h4>
-                            <p>Efficient and timely service delivery</p>
+                    </div>
+                    <div class="about-image-floating">
+                        <div class="floating-card">
+                            <i class="fas fa-trophy"></i>
+                            <h4>Award Winning</h4>
+                            <p>Best Garage 2024</p>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="images/garage-interior.jpg" alt="ACM Electrical & Trading Garage Interior">
+                <div class="about-text" data-aos="fade-left" data-aos-delay="400">
+                    <h3>Your Premier Automotive Partner in Qatar</h3>
+                    <p class="about-intro">ACM Electrical & Trading stands as a beacon of excellence in Qatar's automotive industry, located in the prestigious Al Thumama district. Our commitment to quality and customer satisfaction has made us the go-to choice for automotive solutions.</p>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Certified Excellence</h4>
+                                <p>ISO certified with international quality standards</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>Expert Team</h4>
+                                <p>Highly skilled technicians with 10+ years experience</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>24/7 Support</h4>
+                                <p>Round-the-clock emergency assistance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-features">
+                        <div class="feature-grid">
+                            <div class="feature" data-aos="zoom-in" data-aos-delay="600">
+                                <div class="feature-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h4>Modern Equipment</h4>
+                                <p>Latest diagnostic tools and professional equipment</p>
+                            </div>
+                            <div class="feature" data-aos="zoom-in" data-aos-delay="700">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Quality Guarantee</h4>
+                                <p>100% satisfaction guarantee on all our services</p>
+                            </div>
+                            <div class="feature" data-aos="zoom-in" data-aos-delay="800">
+                                <div class="feature-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h4>Trusted Partner</h4>
+                                <p>Building long-term relationships with our clients</p>
+                            </div>
+                            <div class="feature" data-aos="zoom-in" data-aos-delay="900">
+                                <div class="feature-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <h4>Award Winning</h4>
+                                <p>Recognized for excellence in automotive services</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-cta" data-aos="fade-up" data-aos-delay="1000">
+                        <a href="#services" class="btn btn-primary btn-glow">Discover Our Services</a>
+                        <a href="#contact" class="btn btn-outline">Contact Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="stats-section">
+        <div class="stats-background">
+            <img src="images/2023-07-26.webp" alt="Background" class="stats-bg-img">
+            <div class="stats-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Our Achievements</span>
+                </div>
+                <h2>Proven <span class="gradient-text">Excellence</span></h2>
+                <p>Numbers that speak for our commitment to quality and customer satisfaction</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-count="1200">0</div>
+                    <div class="stat-label">Satisfied Customers</div>
+                    <div class="stat-description">Happy clients across Qatar</div>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <div class="stat-number" data-count="5000">0</div>
+                    <div class="stat-label">Repairs Completed</div>
+                    <div class="stat-description">Successfully fixed vehicles</div>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number" data-count="24">0</div>
+                    <div class="stat-label">Hours Service</div>
+                    <div class="stat-description">Round the clock support</div>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                    <div class="stat-description">Customer satisfaction percentage</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
+    <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>Comprehensive automotive solutions for all your needs</p>
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">
+                    <i class="fas fa-cogs"></i>
+                    <span>Our Services</span>
+                </div>
+                <h2>Comprehensive <span class="gradient-text">Automotive Solutions</span></h2>
+                <p>From electrical diagnostics to emergency repairs, we provide complete automotive care</p>
             </div>
+            
+            <!-- Service Categories -->
+            <div class="service-categories" data-aos="fade-up" data-aos-delay="200">
+                <button class="category-btn active" data-category="all">All Services</button>
+                <button class="category-btn" data-category="electrical">Electrical</button>
+                <button class="category-btn" data-category="repair">Repairs</button>
+                <button class="category-btn" data-category="trading">Trading</button>
+                <button class="category-btn" data-category="emergency">Emergency</button>
+            </div>
+
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bolt"></i>
+                <div class="service-card premium" data-category="electrical" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="service-badge">Popular</div>
                     </div>
                     <h3>Electrical Systems</h3>
-                    <p>Complete electrical system diagnosis, repair, and maintenance for all vehicle types.</p>
-                    <ul>
-                        <li>Battery testing & replacement</li>
-                        <li>Alternator repair</li>
-                        <li>Starter motor service</li>
-                        <li>Wiring harness repair</li>
+                    <p>Complete electrical system diagnosis, repair, and maintenance for all vehicle types with advanced diagnostic equipment.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Battery testing & replacement</li>
+                        <li><i class="fas fa-check"></i> Alternator repair & service</li>
+                        <li><i class="fas fa-check"></i> Starter motor diagnostics</li>
+                        <li><i class="fas fa-check"></i> Wiring harness repair</li>
+                        <li><i class="fas fa-check"></i> ECU programming</li>
                     </ul>
+                    <div class="service-pricing">
+                        <span class="price-from">Starting from</span>
+                        <span class="price">QAR 150</span>
+                    </div>
+                    <a href="#contact" class="btn btn-service">Get Quote</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-car"></i>
+
+                <div class="service-card" data-category="repair" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
                     </div>
                     <h3>General Repairs</h3>
-                    <p>Professional automotive repair services with quality guaranteed workmanship.</p>
-                    <ul>
-                        <li>Engine diagnostics</li>
-                        <li>Brake system service</li>
-                        <li>Transmission repair</li>
-                        <li>Cooling system maintenance</li>
+                    <p>Professional automotive repair services with quality guaranteed workmanship using genuine parts.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Engine diagnostics</li>
+                        <li><i class="fas fa-check"></i> Brake system service</li>
+                        <li><i class="fas fa-check"></i> Transmission repair</li>
+                        <li><i class="fas fa-check"></i> Cooling system maintenance</li>
+                        <li><i class="fas fa-check"></i> Suspension repair</li>
                     </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
+                    <div class="service-pricing">
+                        <span class="price-from">Starting from</span>
+                        <span class="price">QAR 200</span>
                     </div>
-                    <h3>Trading Services</h3>
-                    <p>Quality automotive parts and accessories trading with competitive prices.</p>
-                    <ul>
-                        <li>Auto parts supply</li>
-                        <li>Electrical components</li>
-                        <li>Batteries & accessories</li>
-                        <li>Tools & equipment</li>
-                    </ul>
+                    <a href="#contact" class="btn btn-service">Get Quote</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
+
+                <div class="service-card" data-category="trading" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
                     </div>
-                    <h3>Diagnostics</h3>
-                    <p>Advanced computer diagnostics to identify and resolve vehicle issues quickly.</p>
-                    <ul>
-                        <li>OBD diagnostics</li>
-                        <li>Electronic system scanning</li>
-                        <li>Performance testing</li>
-                        <li>Fault code analysis</li>
+                    <h3>Premium Trading</h3>
+                    <p>Quality automotive parts and accessories trading with competitive prices and warranty coverage.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> OEM & aftermarket parts</li>
+                        <li><i class="fas fa-check"></i> Electrical components</li>
+                        <li><i class="fas fa-check"></i> Batteries & accessories</li>
+                        <li><i class="fas fa-check"></i> Professional tools</li>
+                        <li><i class="fas fa-check"></i> Bulk supply available</li>
                     </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-wrench"></i>
+                    <div class="service-pricing">
+                        <span class="price-from">Best prices</span>
+                        <span class="price">Guaranteed</span>
                     </div>
-                    <h3>Maintenance</h3>
-                    <p>Regular maintenance services to keep your vehicle running at peak performance.</p>
-                    <ul>
-                        <li>Oil change service</li>
-                        <li>Filter replacements</li>
-                        <li>Routine inspections</li>
-                        <li>Preventive maintenance</li>
-                    </ul>
+                    <a href="#contact" class="btn btn-service">Browse Parts</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
+
+                <div class="service-card" data-category="repair" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <h3>Advanced Diagnostics</h3>
+                    <p>State-of-the-art computer diagnostics to identify and resolve vehicle issues quickly and accurately.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> OBD diagnostics</li>
+                        <li><i class="fas fa-check"></i> Electronic system scanning</li>
+                        <li><i class="fas fa-check"></i> Performance testing</li>
+                        <li><i class="fas fa-check"></i> Fault code analysis</li>
+                        <li><i class="fas fa-check"></i> Pre-purchase inspection</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <span class="price-from">Starting from</span>
+                        <span class="price">QAR 100</span>
+                    </div>
+                    <a href="#contact" class="btn btn-service">Book Now</a>
+                </div>
+
+                <div class="service-card" data-category="repair" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                    </div>
+                    <h3>Preventive Maintenance</h3>
+                    <p>Regular maintenance services to keep your vehicle running at peak performance and extend its lifespan.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Oil change service</li>
+                        <li><i class="fas fa-check"></i> Filter replacements</li>
+                        <li><i class="fas fa-check"></i> Routine inspections</li>
+                        <li><i class="fas fa-check"></i> Fluid top-ups</li>
+                        <li><i class="fas fa-check"></i> Scheduled maintenance</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <span class="price-from">Packages from</span>
+                        <span class="price">QAR 180</span>
+                    </div>
+                    <a href="#contact" class="btn btn-service">View Packages</a>
+                </div>
+
+                <div class="service-card emergency-card" data-category="emergency" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-header">
+                        <div class="service-icon emergency-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-badge emergency">24/7</div>
                     </div>
                     <h3>Emergency Service</h3>
-                    <p>24/7 emergency roadside assistance for urgent automotive needs.</p>
-                    <ul>
-                        <li>Roadside assistance</li>
-                        <li>Jump start service</li>
-                        <li>Emergency repairs</li>
-                        <li>Towing service</li>
+                    <p>Round-the-clock emergency roadside assistance for urgent automotive needs anywhere in Qatar.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 24/7 roadside assistance</li>
+                        <li><i class="fas fa-check"></i> Jump start service</li>
+                        <li><i class="fas fa-check"></i> Emergency repairs</li>
+                        <li><i class="fas fa-check"></i> Towing service</li>
+                        <li><i class="fas fa-check"></i> Lockout assistance</li>
                     </ul>
+                    <div class="emergency-hotline">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Emergency Hotline: +974 7101 4454</span>
+                    </div>
+                    <a href="tel:+97471014454" class="btn btn-emergency">Call Emergency</a>
                 </div>
             </div>
         </div>
@@ -182,34 +448,267 @@
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Workshop</h2>
-                <p>Take a look at our modern facilities and professional workspace</p>
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">
+                    <i class="fas fa-images"></i>
+                    <span>Our Workshop</span>
+                </div>
+                <h2>State-of-the-Art <span class="gradient-text">Facilities</span></h2>
+                <p>Take a virtual tour of our modern workshop and professional workspace</p>
             </div>
+            
+            <div class="gallery-filter" data-aos="fade-up" data-aos-delay="200">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="workshop">Workshop</button>
+                <button class="filter-btn" data-filter="equipment">Equipment</button>
+                <button class="filter-btn" data-filter="services">Services</button>
+            </div>
+
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/workshop-1.jpg" alt="Workshop Interior">
+                <div class="gallery-item workshop" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="images/2023-07-26.webp" alt="Modern Workshop Interior">
                     <div class="gallery-overlay">
-                        <h4>Modern Workshop</h4>
+                        <div class="gallery-content">
+                            <h4>Modern Workshop</h4>
+                            <p>State-of-the-art facility</p>
+                            <div class="gallery-icons">
+                                <button class="gallery-btn" onclick="openLightbox('images/2023-07-26.webp', 'Modern Workshop')">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="gallery-btn" onclick="shareImage('Modern Workshop')">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/workshop-2.jpg" alt="Diagnostic Equipment">
+
+                <div class="gallery-item equipment" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="images/2023-07-26 (1).webp" alt="Professional Equipment">
                     <div class="gallery-overlay">
-                        <h4>Diagnostic Equipment</h4>
+                        <div class="gallery-content">
+                            <h4>Diagnostic Equipment</h4>
+                            <p>Latest technology tools</p>
+                            <div class="gallery-icons">
+                                <button class="gallery-btn" onclick="openLightbox('images/2023-07-26 (1).webp', 'Diagnostic Equipment')">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="gallery-btn" onclick="shareImage('Diagnostic Equipment')">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/workshop-3.jpg" alt="Tools and Equipment">
+
+                <div class="gallery-item services" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&w=500" alt="Electrical Service">
                     <div class="gallery-overlay">
-                        <h4>Professional Tools</h4>
+                        <div class="gallery-content">
+                            <h4>Electrical Services</h4>
+                            <p>Expert electrical repairs</p>
+                            <div class="gallery-icons">
+                                <button class="gallery-btn" onclick="openLightbox('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?ixlib=rb-4.0.3&w=800', 'Electrical Services')">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="gallery-btn" onclick="shareImage('Electrical Services')">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/workshop-4.jpg" alt="Service Bay">
+
+                <div class="gallery-item workshop" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&w=500" alt="Service Bay">
                     <div class="gallery-overlay">
-                        <h4>Service Bay</h4>
+                        <div class="gallery-content">
+                            <h4>Service Bay</h4>
+                            <p>Spacious work areas</p>
+                            <div class="gallery-icons">
+                                <button class="gallery-btn" onclick="openLightbox('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&w=800', 'Service Bay')">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="gallery-btn" onclick="shareImage('Service Bay')">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <div class="gallery-item equipment" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&w=500" alt="Professional Tools">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4>Professional Tools</h4>
+                            <p>Quality equipment</p>
+                            <div class="gallery-icons">
+                                <button class="gallery-btn" onclick="openLightbox('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&w=800', 'Professional Tools')">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="gallery-btn" onclick="shareImage('Professional Tools')">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item services" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&w=500" alt="Emergency Service">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4>Emergency Service</h4>
+                            <p>24/7 assistance</p>
+                            <div class="gallery-icons">
+                                <button class="gallery-btn" onclick="openLightbox('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&w=800', 'Emergency Service')">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="gallery-btn" onclick="shareImage('Emergency Service')">
+                                    <i class="fas fa-share"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-cta" data-aos="fade-up" data-aos-delay="800">
+                <h3>Want to see more?</h3>
+                <p>Visit our facility and experience our professional services firsthand</p>
+                <a href="#contact" class="btn btn-primary btn-glow">Schedule a Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">
+                    <i class="fas fa-quote-left"></i>
+                    <span>Client Reviews</span>
+                </div>
+                <h2>What Our <span class="gradient-text">Customers Say</span></h2>
+                <p>Don't just take our word for it - hear from our satisfied customers</p>
+            </div>
+
+            <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Exceptional service! ACM Electrical & Trading fixed my car's electrical issues quickly and professionally. Their technicians are knowledgeable and the pricing is very fair. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face" alt="Ahmed Al-Rashid">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Ahmed Al-Rashid</h4>
+                                    <span>Business Owner</span>
+                                    <div class="author-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Doha, Qatar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Outstanding emergency service! When my car broke down at midnight, they responded immediately and got me back on the road. Their 24/7 service is a lifesaver. Professional and reliable!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b332c12a?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face" alt="Sarah Mohammed">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah Mohammed</h4>
+                                    <span>Marketing Manager</span>
+                                    <div class="author-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Al Rayyan, Qatar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Best garage in Qatar! Their diagnostic equipment is top-notch and they solved a problem that three other garages couldn't figure out. Fair pricing and excellent customer service."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face" alt="Mohammed Al-Thani">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Mohammed Al-Thani</h4>
+                                    <span>Engineer</span>
+                                    <div class="author-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>West Bay, Qatar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn prev" onclick="changeTestimonial(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonial-dots">
+                        <span class="dot active" onclick="currentTestimonial(1)"></span>
+                        <span class="dot" onclick="currentTestimonial(2)"></span>
+                        <span class="dot" onclick="currentTestimonial(3)"></span>
+                    </div>
+                    <button class="testimonial-btn next" onclick="changeTestimonial(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="review-stats" data-aos="fade-up" data-aos-delay="600">
+                <div class="review-stat">
+                    <div class="review-number">4.9</div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-text">Average Rating</div>
+                </div>
+                <div class="review-stat">
+                    <div class="review-number">150+</div>
+                    <div class="review-text">Google Reviews</div>
+                </div>
+                <div class="review-stat">
+                    <div class="review-number">98%</div>
+                    <div class="review-text">Satisfied Customers</div>
                 </div>
             </div>
         </div>
@@ -347,5 +846,25 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="video-close" onclick="closeVideoModal()">&times;</span>
+            <div class="video-container">
+                <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
