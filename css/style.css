@@ -3,38 +3,40 @@
    Modern, Professional, & Interactive Design
    =============================================== */
 
-/* CSS Custom Properties (Variables) */
+/* CSS Custom Properties (Variables) - Enhanced for Better Readability */
 :root {
-    /* Primary Colors */
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --primary-light: #3b82f6;
-    --secondary-color: #f59e0b;
-    --secondary-dark: #d97706;
+    /* Primary Colors - Improved Contrast */
+    --primary-color: #1e40af;
+    --primary-dark: #1e3a8a;
+    --primary-light: #2563eb;
+    --secondary-color: #ea580c;
+    --secondary-dark: #c2410c;
     
-    /* Gradient Colors */
-    --gradient-primary: linear-gradient(135deg, #2563eb, #1d4ed8);
-    --gradient-secondary: linear-gradient(135deg, #f59e0b, #d97706);
-    --gradient-hero: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.8));
-    --gradient-glass: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    /* Gradient Colors - Enhanced Visibility */
+    --gradient-primary: linear-gradient(135deg, #1e40af, #1e3a8a);
+    --gradient-secondary: linear-gradient(135deg, #ea580c, #c2410c);
+    --gradient-hero: linear-gradient(135deg, rgba(30, 64, 175, 0.95), rgba(30, 58, 138, 0.9));
+    --gradient-glass: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08));
     
-    /* Text Colors */
-    --text-primary: #1f2937;
-    --text-secondary: #6b7280;
-    --text-light: #9ca3af;
+    /* Text Colors - Better Contrast */
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-light: #6b7280;
     --text-white: #ffffff;
+    --text-muted: #9ca3af;
     
     /* Background Colors */
     --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
     --bg-dark: #1f2937;
     --bg-darker: #111827;
     
-    /* Accent Colors */
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --error-color: #ef4444;
-    --info-color: #06b6d4;
+    /* Accent Colors - Improved Visibility */
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --error-color: #dc2626;
+    --info-color: #0284c7;
     
     /* Spacing */
     --section-padding: 6rem 0;
@@ -81,10 +83,14 @@ html {
 
 body {
     font-family: var(--font-secondary);
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.7;
     color: var(--text-primary);
     background-color: var(--bg-primary);
     overflow-x: hidden;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Loading Screen */
@@ -177,7 +183,7 @@ p {
     background-clip: text;
 }
 
-/* Buttons */
+/* Buttons - Enhanced for Better Readability */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -187,7 +193,7 @@ p {
     border: none;
     border-radius: var(--border-radius);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     font-size: var(--font-size-sm);
     text-align: center;
     cursor: pointer;
@@ -196,17 +202,47 @@ p {
     overflow: hidden;
     font-family: var(--font-secondary);
     min-width: 160px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
     background: var(--gradient-primary);
     color: white;
     box-shadow: var(--shadow-md);
+    border: 1px solid var(--primary-dark);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+.btn-secondary {
+    background: var(--gradient-secondary);
+    color: white;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--secondary-dark);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, var(--secondary-dark), var(--secondary-color));
+}
+
+.btn-outline {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    font-weight: 700;
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .btn-secondary {
@@ -482,11 +518,14 @@ section {
     margin-bottom: 1.5rem;
     font-weight: 800;
     line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
 .hero-ampersand {
     color: var(--secondary-color);
     font-style: italic;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle-container {
@@ -496,7 +535,9 @@ section {
 .hero-subtitle {
     font-size: var(--font-size-xl);
     margin-bottom: 1rem;
-    font-weight: 500;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .typing-text {
@@ -1466,6 +1507,168 @@ section {
 .review-text {
     color: var(--text-secondary);
     font-weight: 600;
+}
+
+/* ==============================
+   LOCATION SECTION STYLES
+   ============================== */
+.location-section {
+    padding: var(--section-padding);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.map-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    background: var(--bg-primary);
+    padding: 1rem;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    border-radius: 15px;
+}
+
+.location-overlay {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background: var(--gradient-glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 350px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.location-info h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location-info h3 i {
+    color: var(--secondary-color);
+}
+
+.location-info p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.location-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.location-buttons .btn {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+}
+
+.location-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-item {
+    background: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.feature-item h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.feature-item p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Mobile Responsiveness for Location Section */
+@media (max-width: 768px) {
+    .location-overlay {
+        position: static;
+        margin-top: 1rem;
+        max-width: 100%;
+    }
+    
+    .map-container {
+        padding: 0.5rem;
+    }
+    
+    .map-container iframe {
+        height: 300px;
+    }
+    
+    .location-buttons {
+        flex-direction: column;
+    }
+    
+    .location-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .location-features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .feature-item {
+        padding: 1.5rem;
+    }
 }
 
 /* Contact Section */
