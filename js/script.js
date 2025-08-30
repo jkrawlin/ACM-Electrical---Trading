@@ -581,7 +581,7 @@ function setupTestimonials() {
         showTestimonial(currentTestimonial);
     };
     
-    window.currentTestimonial = function(index) {
+    window.goToTestimonial = function(index) {
         currentTestimonial = index - 1;
         showTestimonial(currentTestimonial);
     };

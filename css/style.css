@@ -570,6 +570,8 @@ section {
     max-width: 1000px;
     padding: 0 2rem;
     z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-badge {
@@ -644,6 +646,10 @@ section {
     max-width: 700px;
     margin: 0 auto 3rem;
     line-height: 1.6;
+    text-align: center;
+    padding: 0 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .hero-buttons {
@@ -1624,6 +1630,7 @@ section {
     color: white;
     padding: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
 .work-info h3 {
@@ -1637,6 +1644,9 @@ section {
     font-size: 1.1rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .work-grid {
@@ -1676,6 +1686,7 @@ section {
     padding: 1.5rem;
     transform: translateY(50%);
     transition: all 0.4s ease;
+    text-align: center;
 }
 
 .work-item:hover .work-overlay {
@@ -1693,6 +1704,9 @@ section {
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.5;
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Mobile Responsiveness for Work Section */
@@ -2695,6 +2709,11 @@ section {
         font-size: 1rem;
     }
     
+    .hero-description {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+    }
+    
     .container {
         padding: 0 0.8rem;
     }
@@ -2703,6 +2722,14 @@ section {
     .contact-form,
     .testimonial-content {
         padding: 1.5rem 1rem;
+    }
+    
+    .work-info {
+        padding: 1.5rem 1rem;
+    }
+    
+    .work-overlay {
+        padding: 1rem;
     }
     
     .btn {
