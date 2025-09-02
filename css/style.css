@@ -1450,7 +1450,7 @@ section {
     margin-bottom: 2rem;
 }
 
-/* Enhanced Testimonials Section - Better Design & Contrast */
+/* Enhanced Testimonials Section - Fixed Content Cutoff & Button Layout */
 .testimonials {
     padding: var(--section-padding);
     background: var(--bg-secondary); /* Light gray background for better contrast */
@@ -1460,15 +1460,15 @@ section {
 
 .testimonials-slider {
     position: relative;
-    max-width: 1000px; /* Increased width for better spacing */
+    max-width: 1200px; /* Increased from 1000px for more breathing room */
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 3rem; /* Extra side padding to prevent edge clipping */
 }
 
 .testimonial-track {
     display: flex;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */
-    overflow: hidden; /* Prevent overflow issues */
+    overflow: visible; /* Changed to visible to show full content */
 }
 
 .testimonial-card {
@@ -1486,13 +1486,18 @@ section {
 
 .testimonial-content {
     background: var(--bg-primary); /* Pure white background */
-    padding: 3rem 2.5rem; /* Better padding to prevent truncation */
+    padding: 3.5rem 3rem; /* Increased padding to avoid text touching edges */
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-xl);
     text-align: left; /* Better for reading quotes */
     position: relative;
     border: 2px solid var(--primary);
     margin: 0 1rem; /* Space between cards */
+    min-width: 100%; /* Ensure full width within track */
+    max-width: none; /* Remove any implicit max-width constraints */
+    word-break: break-word; /* Stronger breaking for long words */
+    hyphens: auto; /* Auto hyphenation for better flow */
+    line-height: 1.8; /* More space between lines */
     word-wrap: break-word; /* Prevent text overflow */
     overflow-wrap: break-word;
 }
@@ -1522,14 +1527,15 @@ section {
 }
 
 .testimonial-content p {
-    font-size: var(--font-size-lg);
+    font-size: 1.2rem; /* Slightly larger for readability */
     color: var(--text-primary); /* Darker text for better readability */
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
+    line-height: 1.8; /* Enhanced line spacing */
+    margin-bottom: 3rem; /* More space below quote */
     font-style: italic;
-    text-align: left;
+    text-align: justify; /* Even distribution to prevent ragged edges */
     word-wrap: break-word;
     hyphens: auto; /* Better word breaking */
+    white-space: normal; /* Ensure normal text flow */
 }
 
 .testimonial-author {
@@ -1581,10 +1587,11 @@ section {
 
 .testimonial-controls {
     display: flex;
+    flex-direction: row; /* Always horizontal layout */
     align-items: center;
     justify-content: center;
-    gap: 3rem; /* More space between controls */
-    margin-top: 3rem;
+    gap: 2rem; /* Balanced spacing */
+    margin-top: 2.5rem;
 }
 
 .testimonial-btn {
@@ -1605,6 +1612,14 @@ section {
     z-index: 10; /* Ensure buttons are clickable */
 }
 
+.testimonial-btn.prev {
+    order: 0; /* Previous button first */
+}
+
+.testimonial-btn.next {
+    order: 2; /* Next button last */
+}
+
 .testimonial-btn:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: var(--shadow-glow);
@@ -1617,7 +1632,8 @@ section {
 
 .testimonial-dots {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem; /* Tighter spacing for dots */
+    order: 1; /* Dots between arrows */
 }
 
 .dot {
@@ -1635,10 +1651,14 @@ section {
     transform: scale(1.3);
 }
 
-/* Testimonials Mobile Responsiveness */
+/* Enhanced Testimonials Mobile Responsiveness - Keep Horizontal Layout */
 @media (max-width: 768px) {
+    .testimonials-slider {
+        padding: 0 1.5rem; /* Reduced side padding on mobile */
+    }
+    
     .testimonial-content {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 2rem; /* Reduced padding but still generous */
         margin: 0 0.5rem;
     }
     
@@ -1646,6 +1666,11 @@ section {
         font-size: 3rem;
         top: -5px;
         left: 1rem;
+    }
+    
+    .testimonial-content p {
+        font-size: 1.1rem; /* Slightly smaller on mobile but still readable */
+        margin-bottom: 2.5rem;
     }
     
     .testimonial-author {
@@ -1658,15 +1683,27 @@ section {
         text-align: center;
     }
     
+    /* Keep controls horizontal even on mobile */
+    .testimonial-controls {
+        flex-direction: row; /* Force horizontal layout */
+        gap: 1.5rem; /* Reduced spacing for mobile */
+        margin-top: 2rem;
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+    
     .testimonial-btn {
-        width: 50px;
+        width: 50px; /* Smaller buttons on mobile */
         height: 50px;
         font-size: 1.2rem;
     }
     
-    .testimonial-controls {
-        gap: 2rem;
-        margin-top: 2rem;
+    .testimonial-dots {
+        gap: 0.6rem; /* Tighter dots spacing on mobile */
+    }
+    
+    .dot {
+        width: 15px; /* Smaller dots on mobile */
+        height: 15px;
     }
 }
 
