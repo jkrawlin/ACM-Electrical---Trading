@@ -122,9 +122,9 @@ function setupScrollEffects() {
         // Navbar scroll effect
         if (navbar) {
             if (scrolled > 50) {
-                navbar.classList.add('scrolled');
+                navbar.classList.add('sticky');
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.classList.remove('sticky');
             }
         }
 
