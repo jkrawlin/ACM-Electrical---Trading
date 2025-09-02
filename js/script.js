@@ -192,8 +192,8 @@ function setupAnimations() {
 
     // Intersection Observer for animations
     const observerOptions = {
-        threshold: 0.2, // Increased from 0.1 for earlier trigger
-        rootMargin: '0px 0px -5% 0px' // Reduced negative margin for earlier trigger
+        threshold: 0.3, // Increased threshold for more precise triggering
+        rootMargin: '0px 0px -10% 0px' // Trigger when 30% visible and not at bottom edge
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -202,8 +202,12 @@ function setupAnimations() {
                 entry.target.classList.add('animate-in');
                 
                 // Start counters when stats section is visible
-                if (entry.target.classList.contains('stats-section')) {
-                    startCounters();
+                if (entry.target.classList.contains('stats-section') || 
+                    entry.target.classList.contains('hero-stats')) {
+                    // Slight delay to ensure smooth animation start
+                    setTimeout(() => {
+                        startCounters();
+                    }, 200);
                 }
             }
         });
@@ -211,7 +215,7 @@ function setupAnimations() {
 
     // Observe elements for animation
     const animatedElements = document.querySelectorAll(
-        '.service-card, .feature, .contact-item, .gallery-item, .testimonial-card, .stat-card, .stats-section'
+        '.service-card, .feature, .contact-item, .gallery-item, .testimonial-card, .stat-card, .stats-section, .hero-stats'
     );
     
     animatedElements.forEach(el => {
@@ -610,11 +614,22 @@ function setupTestimonials() {
     }
 }
 
-// Animated Counters
+// Animated Counters with Enhanced Performance
 let countersStarted = false; // Prevent multiple counter starts
 
 function setupCounters() {
-    // This will be called when stats section is visible
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+        // Immediately show final values for users who prefer reduced motion
+        const counters = document.querySelectorAll('[data-count]');
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            counter.textContent = target.toLocaleString();
+        });
+        return;
+    }
 }
 
 function startCounters() {
@@ -622,32 +637,43 @@ function startCounters() {
     countersStarted = true;
 
     const counters = document.querySelectorAll('[data-count]');
+    
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+        // Instantly show final values
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            counter.textContent = target.toLocaleString();
+            counter.classList.add('counted');
+        });
+        return;
+    }
+
     const counterPromises = [];
 
     counters.forEach(counter => {
         if (counter.classList.contains('counted')) return;
 
         const target = parseInt(counter.getAttribute('data-count'));
-        const duration = 1500;
-        const steps = 40;
-        const stepValue = target / steps;
-        const stepDuration = duration / steps;
-
+        // Dynamic duration based on number size for better UX
+        const duration = Math.min(1000, Math.max(500, target * 0.1)); 
+        
         let current = 0;
         counter.classList.add('counted');
 
         // Create promise for each counter animation
         const counterPromise = new Promise((resolve) => {
-            // Use requestAnimationFrame for smoother animation, with fallback
             const startTime = performance.now();
 
             function animate(currentTime) {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
 
-                // Easing function for smoother animation
-                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-                current = target * easeOutCubic;
+                // Enhanced easing function for more natural feel
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                current = target * easeOutQuart;
 
                 if (progress < 1) {
                     counter.textContent = Math.floor(current).toLocaleString();
@@ -658,22 +684,8 @@ function startCounters() {
                 }
             }
 
-            // Fallback for browsers without requestAnimationFrame
-            if (typeof requestAnimationFrame !== 'undefined') {
-                requestAnimationFrame(animate);
-            } else {
-                // Fallback to setTimeout
-                const timer = setInterval(() => {
-                    current += stepValue;
-                    if (current >= target) {
-                        counter.textContent = target.toLocaleString();
-                        clearInterval(timer);
-                        resolve();
-                    } else {
-                        counter.textContent = Math.floor(current).toLocaleString();
-                    }
-                }, stepDuration);
-            }
+            // Start animation immediately with requestAnimationFrame
+            requestAnimationFrame(animate);
         });
 
         counterPromises.push(counterPromise);
@@ -681,7 +693,15 @@ function startCounters() {
 
     // Optional: Handle when all counters are done
     Promise.all(counterPromises).then(() => {
-        console.log('All counters finished animating');
+        console.log('✅ All counters finished animating with optimized timing');
+        
+        // Analytics tracking if available
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'animation_complete', {
+                event_category: 'User Engagement',
+                event_label: 'Counter Animation'
+            });
+        }
     });
 }// Utility Buttons (Scroll to Top, WhatsApp)
 function setupUtilityButtons() {
