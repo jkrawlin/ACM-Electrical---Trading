@@ -192,8 +192,8 @@ function setupAnimations() {
 
     // Intersection Observer for animations
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -10% 0px'
+        threshold: 0.2, // Increased from 0.1 for earlier trigger
+        rootMargin: '0px 0px -5% 0px' // Reduced negative margin for earlier trigger
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -611,38 +611,79 @@ function setupTestimonials() {
 }
 
 // Animated Counters
+let countersStarted = false; // Prevent multiple counter starts
+
 function setupCounters() {
     // This will be called when stats section is visible
 }
 
 function startCounters() {
+    if (countersStarted) return; // Prevent multiple starts
+    countersStarted = true;
+
     const counters = document.querySelectorAll('[data-count]');
-    
+    const counterPromises = [];
+
     counters.forEach(counter => {
         if (counter.classList.contains('counted')) return;
-        
+
         const target = parseInt(counter.getAttribute('data-count'));
-        const duration = 2000;
-        const steps = 60;
+        const duration = 1500;
+        const steps = 40;
         const stepValue = target / steps;
         const stepDuration = duration / steps;
-        
+
         let current = 0;
         counter.classList.add('counted');
-        
-        const timer = setInterval(() => {
-            current += stepValue;
-            if (current >= target) {
-                counter.textContent = target.toLocaleString();
-                clearInterval(timer);
-            } else {
-                counter.textContent = Math.floor(current).toLocaleString();
-            }
-        }, stepDuration);
-    });
-}
 
-// Utility Buttons (Scroll to Top, WhatsApp)
+        // Create promise for each counter animation
+        const counterPromise = new Promise((resolve) => {
+            // Use requestAnimationFrame for smoother animation, with fallback
+            const startTime = performance.now();
+
+            function animate(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function for smoother animation
+                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                current = target * easeOutCubic;
+
+                if (progress < 1) {
+                    counter.textContent = Math.floor(current).toLocaleString();
+                    requestAnimationFrame(animate);
+                } else {
+                    counter.textContent = target.toLocaleString();
+                    resolve();
+                }
+            }
+
+            // Fallback for browsers without requestAnimationFrame
+            if (typeof requestAnimationFrame !== 'undefined') {
+                requestAnimationFrame(animate);
+            } else {
+                // Fallback to setTimeout
+                const timer = setInterval(() => {
+                    current += stepValue;
+                    if (current >= target) {
+                        counter.textContent = target.toLocaleString();
+                        clearInterval(timer);
+                        resolve();
+                    } else {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, stepDuration);
+            }
+        });
+
+        counterPromises.push(counterPromise);
+    });
+
+    // Optional: Handle when all counters are done
+    Promise.all(counterPromises).then(() => {
+        console.log('All counters finished animating');
+    });
+}// Utility Buttons (Scroll to Top, WhatsApp)
 function setupUtilityButtons() {
     createScrollToTopButton();
     createWhatsAppButton();
