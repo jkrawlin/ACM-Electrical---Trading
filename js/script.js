@@ -553,15 +553,23 @@ function openLightbox(imageSrc, title) {
     });
 }
 
-// Testimonials Slider
+// Enhanced Testimonials Slider with Better Functionality
 function setupTestimonials() {
     let currentTestimonial = 0;
     const testimonials = document.querySelectorAll('.testimonial-card');
     const dots = document.querySelectorAll('.dot');
+    const track = document.querySelector('.testimonial-track');
     
     if (testimonials.length === 0) return;
     
     function showTestimonial(index) {
+        // Ensure index is within bounds
+        if (index < 0) index = testimonials.length - 1;
+        if (index >= testimonials.length) index = 0;
+        
+        currentTestimonial = index;
+        
+        // Update testimonial cards
         testimonials.forEach((testimonial, i) => {
             testimonial.classList.remove('active');
             if (dots[i]) dots[i].classList.remove('active');
@@ -571,47 +579,118 @@ function setupTestimonials() {
             testimonials[index].classList.add('active');
             if (dots[index]) dots[index].classList.add('active');
         }
+        
+        // Smooth slide animation using transform
+        if (track) {
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
     }
     
-    // Auto-advance testimonials
-    setInterval(() => {
-        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        showTestimonial(currentTestimonial);
-    }, 5000);
+    // Initialize first testimonial
+    showTestimonial(0);
     
-    // Manual controls
+    // Auto-advance testimonials with pause on hover
+    let autoSlideInterval = setInterval(() => {
+        showTestimonial(currentTestimonial + 1);
+    }, 6000); // Increased to 6 seconds for better readability
+    
+    // Pause auto-slide on hover
+    const testimonialContainer = document.querySelector('.testimonials-slider');
+    if (testimonialContainer) {
+        testimonialContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+        
+        testimonialContainer.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(() => {
+                showTestimonial(currentTestimonial + 1);
+            }, 6000);
+        });
+    }
+    
+    // Enhanced Manual controls - make them globally available
     window.changeTestimonial = function(direction) {
-        currentTestimonial = (currentTestimonial + direction + testimonials.length) % testimonials.length;
-        showTestimonial(currentTestimonial);
+        clearInterval(autoSlideInterval); // Stop auto-slide when manually controlled
+        showTestimonial(currentTestimonial + direction);
+        
+        // Restart auto-slide after 10 seconds of inactivity
+        setTimeout(() => {
+            autoSlideInterval = setInterval(() => {
+                showTestimonial(currentTestimonial + 1);
+            }, 6000);
+        }, 10000);
     };
     
     window.goToTestimonial = function(index) {
-        currentTestimonial = index - 1;
-        showTestimonial(currentTestimonial);
+        clearInterval(autoSlideInterval);
+        showTestimonial(index - 1); // Convert to 0-based index
+        
+        // Restart auto-slide
+        setTimeout(() => {
+            autoSlideInterval = setInterval(() => {
+                showTestimonial(currentTestimonial + 1);
+            }, 6000);
+        }, 10000);
     };
     
-    // Touch/swipe support
+    // Enhanced touch/swipe support with better gesture detection
     let startX = 0;
-    const testimonialTrack = document.querySelector('.testimonial-track');
+    let startY = 0;
+    let isSwipe = false;
     
-    if (testimonialTrack) {
-        testimonialTrack.addEventListener('touchstart', (e) => {
+    if (testimonialContainer) {
+        testimonialContainer.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isSwipe = false;
         });
         
-        testimonialTrack.addEventListener('touchend', (e) => {
+        testimonialContainer.addEventListener('touchmove', (e) => {
+            if (!startX || !startY) return;
+            
+            const diffX = Math.abs(e.touches[0].clientX - startX);
+            const diffY = Math.abs(e.touches[0].clientY - startY);
+            
+            // Detect horizontal swipe
+            if (diffX > diffY && diffX > 30) {
+                isSwipe = true;
+                e.preventDefault(); // Prevent scrolling
+            }
+        });
+        
+        testimonialContainer.addEventListener('touchend', (e) => {
+            if (!isSwipe) return;
+            
             const endX = e.changedTouches[0].clientX;
             const diff = startX - endX;
             
-            if (Math.abs(diff) > 50) {
+            if (Math.abs(diff) > 80) { // Increased threshold for better UX
                 if (diff > 0) {
-                    changeTestimonial(1);
+                    changeTestimonial(1); // Swipe left - next
                 } else {
-                    changeTestimonial(-1);
+                    changeTestimonial(-1); // Swipe right - previous
                 }
             }
+            
+            // Reset values
+            startX = 0;
+            startY = 0;
+            isSwipe = false;
         });
     }
+    
+    // Keyboard navigation for accessibility
+    document.addEventListener('keydown', (e) => {
+        if (e.target.closest('.testimonials')) {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                changeTestimonial(-1);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                changeTestimonial(1);
+            }
+        }
+    });
 }
 
 // Animated Counters with Enhanced Performance

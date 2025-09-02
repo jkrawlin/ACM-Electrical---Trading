@@ -3,42 +3,42 @@
    Modern, Professional, & Interactive Design
    =============================================== */
 
-/* CSS Custom Properties (Variables) - New Color Palette */
+/* CSS Custom Properties (Variables) - Enhanced Color Palette for Better Contrast */
 :root {
-    /* New Color Palette - Light Blue, Light Green, Yellow */
-    --primary: #ADD8E6; /* Light blue - Main backgrounds */
-    --secondary: #98FB98; /* Light green - Accents, buttons */
-    --accent: #FFFACD; /* Yellow - CTAs, highlights */
-    --text-dark: #333333; /* For readability */
-    --text-light: #FFFFFF; /* On dark elements if needed */
-    --gradient: linear-gradient(135deg, var(--primary), var(--secondary)); /* Mix for heroes */
+    /* Enhanced Color Palette - Better Contrast for 2025 */
+    --primary: #4A90E2; /* Deeper sky blue for better contrast */
+    --secondary: #50C878; /* Vibrant emerald green */
+    --accent: #FFB347; /* Warm peach instead of pale yellow */
+    --text-dark: #1a1a1a; /* Stronger dark text */
+    --text-light: #FFFFFF; /* Pure white for maximum contrast */
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary)); /* Enhanced gradient */
     
-    /* Gradient Colors - New Palette */
-    --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
-    --gradient-secondary: linear-gradient(135deg, var(--secondary), var(--accent));
-    --gradient-accent: linear-gradient(135deg, var(--accent), var(--primary));
-    --gradient-hero: linear-gradient(135deg, rgba(173, 216, 230, 0.9), rgba(152, 251, 152, 0.8));
-    --gradient-glass: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.08));
+    /* Enhanced Gradient Colors */
+    --gradient-primary: linear-gradient(135deg, #4A90E2, #50C878);
+    --gradient-secondary: linear-gradient(135deg, #50C878, #FFB347);
+    --gradient-accent: linear-gradient(135deg, #FFB347, #4A90E2);
+    --gradient-hero: linear-gradient(135deg, rgba(74, 144, 226, 0.9), rgba(80, 200, 120, 0.8));
+    --gradient-glass: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
     
-    /* Text Colors - Better Contrast */
-    --text-primary: var(--text-dark);
-    --text-secondary: var(--text-dark);
-    --text-light: #6b7280;
-    --text-white: var(--text-light);
-    --text-muted: #9ca3af;
+    /* Enhanced Text Colors - Better Contrast */
+    --text-primary: #1a1a1a; /* Stronger dark text */
+    --text-secondary: #4a5568; /* Medium gray for secondary text */
+    --text-light: #ffffff; /* Pure white */
+    --text-white: #ffffff; /* Pure white */
+    --text-muted: #718096; /* Lighter gray for muted text */
     
-    /* Background Colors */
-    --bg-primary: var(--text-light);
-    --bg-secondary: var(--primary);
-    --bg-tertiary: var(--secondary);
-    --bg-dark: var(--text-dark);
-    --bg-darker: #111827;
+    /* Enhanced Background Colors */
+    --bg-primary: #ffffff; /* Pure white backgrounds */
+    --bg-secondary: #f8fafc; /* Very light gray */
+    --bg-tertiary: #edf2f7; /* Light gray for sections */
+    --bg-dark: #1a202c; /* Dark background */
+    --bg-darker: #111827; /* Darker background */
     
-    /* Accent Colors - New Palette */
-    --success-color: var(--secondary);
-    --warning-color: var(--accent);
-    --error-color: #dc2626;
-    --info-color: var(--primary);
+    /* Enhanced Accent Colors */
+    --success-color: #48bb78; /* Better green */
+    --warning-color: #ed8936; /* Better orange */
+    --error-color: #e53e3e; /* Better red */
+    --info-color: #4299e1; /* Better blue */
     
     /* Spacing */
     --section-padding: 6rem 0;
@@ -58,12 +58,12 @@
     --font-size-3xl: 2.5rem;
     --font-size-4xl: 3rem;
     
-    /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.2);
-    --shadow-glow: 0 0 30px rgba(173, 216, 230, 0.3);
+    /* Enhanced Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.10);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.20), 0 8px 16px rgba(0, 0, 0, 0.12);
+    --shadow-glow: 0 0 20px rgba(74, 144, 226, 0.3);
     
     /* Transitions */
     --transition-fast: 0.2s ease-in-out;
@@ -943,13 +943,13 @@ section {
     margin-top: 3rem;
 }
 
-/* Statistics Section */
+/* Enhanced Statistics Section - Better Contrast & Design */
 .stats-section {
     padding: var(--section-padding);
     position: relative;
     overflow: hidden;
-    background: var(--primary);
-    color: var(--text-dark);
+    background: var(--bg-secondary); /* Light background instead of primary */
+    color: var(--text-primary);
 }
 
 .stats-background {
@@ -965,6 +965,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.1; /* Very subtle background image */
 }
 
 .stats-overlay {
@@ -973,67 +974,119 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(173, 216, 230, 0.9), rgba(152, 251, 152, 0.8));
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.05), rgba(80, 200, 120, 0.05));
     z-index: -1;
+}
+
+/* Section Badge for "Our Achievements" */
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-md);
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
     margin-top: 3rem;
 }
 
 .stat-card {
-    background: var(--gradient-glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-primary); /* White background for better contrast */
+    backdrop-filter: none; /* Remove blur effect */
+    border: 2px solid var(--primary);
     padding: 3rem 2rem;
     border-radius: var(--border-radius-lg);
     text-align: center;
-    transition: var(--transition-normal);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
 }
 
 .stat-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    border-color: var(--primary);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--secondary);
+    background: linear-gradient(145deg, var(--bg-primary), var(--bg-secondary));
 }
 
 .stat-icon {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     background: var(--gradient-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 2rem;
+    box-shadow: var(--shadow-md);
 }
 
 .stat-icon i {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: white;
 }
 
 .stat-number {
-    font-size: 4rem;
+    font-size: 3.5rem; /* Slightly smaller for better balance */
     font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
+    color: var(--text-primary); /* Dark text for better readability */
+    margin-bottom: 1rem;
     font-family: var(--font-primary);
+    text-shadow: none; /* Remove text shadow for clarity */
 }
 
 .stat-label {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
     font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
 }
 
 .stat-description {
-    color: rgba(51, 51, 51, 0.7);
-    font-size: var(--font-size-sm);
+    color: var(--text-secondary); /* Better contrast */
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Stats Section Mobile Responsiveness */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .stat-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .stat-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2.8rem;
+    }
+    
+    .stat-label {
+        font-size: var(--font-size-lg);
+    }
 }
 
 /* Enhanced Services Section */
@@ -1397,28 +1450,33 @@ section {
     margin-bottom: 2rem;
 }
 
-/* Testimonials Section */
+/* Enhanced Testimonials Section - Better Design & Contrast */
 .testimonials {
     padding: var(--section-padding);
-    background: var(--bg-primary);
+    background: var(--bg-secondary); /* Light gray background for better contrast */
+    position: relative;
+    overflow: hidden;
 }
 
 .testimonials-slider {
     position: relative;
-    max-width: 900px;
+    max-width: 1000px; /* Increased width for better spacing */
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .testimonial-track {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */
+    overflow: hidden; /* Prevent overflow issues */
 }
 
 .testimonial-card {
     min-width: 100%;
-    opacity: 0.3;
-    transition: var(--transition-normal);
-    transform: scale(0.9);
+    opacity: 0.4; /* Slightly more visible for inactive cards */
+    transition: all 0.4s ease;
+    transform: scale(0.95);
+    flex-shrink: 0; /* Prevent card shrinking */
 }
 
 .testimonial-card.active {
@@ -1427,59 +1485,67 @@ section {
 }
 
 .testimonial-content {
-    background: var(--text-light);
-    padding: 3rem;
+    background: var(--bg-primary); /* Pure white background */
+    padding: 3rem 2.5rem; /* Better padding to prevent truncation */
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
-    text-align: center;
+    box-shadow: var(--shadow-xl);
+    text-align: left; /* Better for reading quotes */
     position: relative;
-    border: 1px solid var(--primary);
+    border: 2px solid var(--primary);
+    margin: 0 1rem; /* Space between cards */
+    word-wrap: break-word; /* Prevent text overflow */
+    overflow-wrap: break-word;
 }
 
 .testimonial-content::before {
     content: '"';
     position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 6rem;
+    top: -10px;
+    left: 2rem; /* Move quote mark to left for better design */
+    font-size: 4rem; /* Smaller quote mark */
     color: var(--primary);
     font-family: serif;
+    opacity: 0.3; /* More subtle */
 }
 
 .stars {
     display: flex;
-    justify-content: center;
-    gap: 0.5rem;
+    justify-content: flex-start; /* Align left with text */
+    gap: 0.3rem;
     margin-bottom: 2rem;
 }
 
 .stars i {
-    color: var(--secondary);
-    font-size: 1.5rem;
+    color: #FFB347; /* Gold color for stars - better contrast */
+    font-size: 1.3rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
 .testimonial-content p {
     font-size: var(--font-size-lg);
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 2rem;
+    color: var(--text-primary); /* Darker text for better readability */
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
     font-style: italic;
+    text-align: left;
+    word-wrap: break-word;
+    hyphens: auto; /* Better word breaking */
 }
 
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    justify-content: center;
+    justify-content: flex-start; /* Align left */
 }
 
 .author-avatar {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid var(--primary);
+    border: 3px solid var(--primary);
+    flex-shrink: 0; /* Prevent avatar shrinking */
 }
 
 .author-avatar img {
@@ -1494,21 +1560,22 @@ section {
 
 .author-info h4 {
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
 }
 
 .author-info span {
     color: var(--text-secondary);
     font-size: var(--font-size-sm);
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .author-location {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-light);
+    color: var(--text-muted);
     font-size: var(--font-size-xs);
 }
 
@@ -1516,27 +1583,36 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem; /* More space between controls */
     margin-top: 3rem;
 }
 
 .testimonial-btn {
-    width: 50px;
-    height: 50px;
+    width: 60px; /* Larger buttons */
+    height: 60px;
     background: var(--gradient-primary);
     border: none;
     border-radius: 50%;
     color: white;
     cursor: pointer;
-    transition: var(--transition-normal);
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.5rem; /* Larger icons */
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 10; /* Ensure buttons are clickable */
 }
 
 .testimonial-btn:hover {
-    transform: scale(1.1);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: var(--shadow-glow);
+    background: var(--gradient-secondary);
+}
+
+.testimonial-btn:active {
+    transform: translateY(-1px) scale(1.02);
 }
 
 .testimonial-dots {
@@ -1545,9 +1621,9 @@ section {
 }
 
 .dot {
-    width: 15px;
-    height: 15px;
-    background: rgba(37, 99, 235, 0.3);
+    width: 18px; /* Larger dots */
+    height: 18px;
+    background: #cbd5e0; /* Neutral inactive color */
     border-radius: 50%;
     cursor: pointer;
     transition: var(--transition-normal);
@@ -1557,6 +1633,41 @@ section {
 .dot:hover {
     background: var(--primary);
     transform: scale(1.3);
+}
+
+/* Testimonials Mobile Responsiveness */
+@media (max-width: 768px) {
+    .testimonial-content {
+        padding: 2rem 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .testimonial-content::before {
+        font-size: 3rem;
+        top: -5px;
+        left: 1rem;
+    }
+    
+    .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .author-info {
+        text-align: center;
+    }
+    
+    .testimonial-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .testimonial-controls {
+        gap: 2rem;
+        margin-top: 2rem;
+    }
 }
 
 .review-stats {
